@@ -40,3 +40,6 @@ public class MallardDuck extends Duck {
 }
 ```
 
+<br></br>
+
+![img_2.png](img_2.png)
