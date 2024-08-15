@@ -1,19 +1,19 @@
+import observer.observer.ConcurrentConditionsDisplay;
+import observer.observer.ForecastDisplay;
+import observer.observer.StatisticsDisplay;
+import observer.subject.WeatherData;
 import strategy.duck.MallardDuck;
 import strategy.duck.RedHeadDuck;
 import strategy.duck.RubberDuck;
 
 public class Main {
 	public static void main(String[] args) {
-		MallardDuck mallardDuck = new MallardDuck();
-		mallardDuck.display();
-		System.out.println();
+		System.out.println("---- WeatherData 최신 업데이트 ------");
+		WeatherData weatherData = new WeatherData();
+		weatherData.registerObserver(new ConcurrentConditionsDisplay());
+		weatherData.registerObserver(new ForecastDisplay());
+		weatherData.registerObserver(new StatisticsDisplay());
 
-		RedHeadDuck redHeadDuck = new RedHeadDuck();
-		redHeadDuck.display();
-		System.out.println();
-
-		RubberDuck rubberDuck = new RubberDuck();
-		rubberDuck.display();
-		System.out.println();
+		weatherData.setMeasurements();
 	}
 }
