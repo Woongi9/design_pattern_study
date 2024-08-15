@@ -1,3 +1,8 @@
+import decorator.beverage.Beverage;
+import decorator.beverage.Espresso;
+import decorator.beverage.HouseBlend;
+import decorator.condiment.Mocha;
+import decorator.condiment.Whip;
 import observer.observer.ConcurrentConditionsDisplay;
 import observer.observer.ForecastDisplay;
 import observer.observer.StatisticsDisplay;
@@ -8,12 +13,13 @@ import strategy.duck.RubberDuck;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("---- WeatherData 최신 업데이트 ------");
-		WeatherData weatherData = new WeatherData();
-		weatherData.registerObserver(new ConcurrentConditionsDisplay());
-		weatherData.registerObserver(new ForecastDisplay());
-		weatherData.registerObserver(new StatisticsDisplay());
+		Beverage espresso = new Espresso();
+		espresso = new Whip(espresso);
+		System.out.println(espresso.getDescription() + " " + espresso.cost() + "원");
 
-		weatherData.setMeasurements();
+		Beverage beverage = new HouseBlend();
+		beverage = new  Mocha(beverage);
+		beverage = new Whip(beverage);
+		System.out.println(beverage.getDescription() + " " + beverage.cost() + "원");
 	}
 }
