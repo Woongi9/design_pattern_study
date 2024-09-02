@@ -3,6 +3,7 @@ import decorator.beverage.Espresso;
 import decorator.beverage.HouseBlend;
 import decorator.condiment.Mocha;
 import decorator.condiment.Whip;
+import factory.factory.NYPizzaStore;
 import observer.observer.ConcurrentConditionsDisplay;
 import observer.observer.ForecastDisplay;
 import observer.observer.StatisticsDisplay;
@@ -13,13 +14,7 @@ import strategy.duck.RubberDuck;
 
 public class Main {
 	public static void main(String[] args) {
-		Beverage espresso = new Espresso();
-		espresso = new Whip(espresso);
-		System.out.println(espresso.getDescription() + " " + espresso.cost() + "원");
-
-		Beverage beverage = new HouseBlend();
-		beverage = new  Mocha(beverage);
-		beverage = new Whip(beverage);
-		System.out.println(beverage.getDescription() + " " + beverage.cost() + "원");
+		NYPizzaStore nyPizzaStore = new NYPizzaStore();
+		nyPizzaStore.orderPizza("cheese");
 	}
 }
