@@ -1,24 +1,23 @@
 package factory.pizza;
 
-public class Pizza {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Pizza {
 
 	String name;
 	String dough;
 	String sauce;
-	String topping;
-
-	public Pizza() {
-	}
-
-	public Pizza(String name, String dough, String sauce, String topping) {
-		this.name = name;
-		this.dough = dough;
-		this.sauce = sauce;
-		this.topping = topping;
-	}
+	List<String> toppingList = new ArrayList<String>();
 
 	public void prepare() {
-
+		System.out.println("준비중 : " + name);
+		System.out.println("도우 올리는중 : " + dough);
+		System.out.println("sauce : " + sauce);
+		System.out.println("topping : ");
+		for (String topping : toppingList) {
+			System.out.println(topping + " ");
+		}
 	}
 
 	public void bake() {}
