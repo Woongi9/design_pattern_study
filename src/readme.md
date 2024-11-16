@@ -16,8 +16,8 @@
 
 ### 순서
 
-1. 전략 패턴
-2. 옵저버 패턴
-3. 데코레이터 패턴
-4. 팩토리 패턴
+1. [전략 패턴](https://github.com/Woongi9/design_pattern_study/tree/main/src/strategy)
+2. [옵저버 패턴](https://github.com/Woongi9/design_pattern_study/tree/main/src/observer)
+3. [데코레이터 패턴](https://github.com/Woongi9/design_pattern_study/tree/main/src/decorator)
+4. [팩토리 패턴](https://github.com/Woongi9/design_pattern_study/tree/main/src/factory)
 
