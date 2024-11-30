@@ -1,3 +1,8 @@
+import adapter.Duck;
+import adapter.MallardDuck;
+import adapter.Turkey;
+import adapter.TurkeyAdapter;
+import adapter.WildTurkey;
 import command.GarageDoor;
 import command.GarageDoorCloseCommand;
 import command.GarageDoorOpenCommand;
@@ -8,20 +13,17 @@ import command.RemoteControl;
 
 public class Main {
 	public static void main(String[] args) {
-		RemoteControl remoteControl = new RemoteControl();
-		Light light = new Light();
-		LightOnCommand onLightOnCommand = new LightOnCommand(light);
-		LightOffCommand offLightOnCommand = new LightOffCommand(light);
-		GarageDoor garageDoor = new GarageDoor();
-		GarageDoorOpenCommand onGarageDoor = new GarageDoorOpenCommand(garageDoor);
-		GarageDoorCloseCommand offGarageDoor = new GarageDoorCloseCommand(garageDoor);
+		Duck mallardDuck = new MallardDuck();
 
-		remoteControl.setCommand(1, onLightOnCommand, offLightOnCommand);
-		remoteControl.setCommand(4, onGarageDoor, offGarageDoor);
+		Turkey turkey = new WildTurkey();
+		Duck turkeyAdapter = new TurkeyAdapter(turkey);
 
-		remoteControl.onButtonWasPushed(1);
-		remoteControl.onButtonWasPushed(4);
-		remoteControl.offButtonWasPushed(1);
-		remoteControl.offButtonWasPushed(4);
+		System.out.println("------칠면조------");
+		turkeyAdapter.quack();
+		turkeyAdapter.fly();
+		System.out.println();
+		System.out.println("------오리------");
+		mallardDuck.quack();
+		mallardDuck.fly();
 	}
 }
