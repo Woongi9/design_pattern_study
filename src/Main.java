@@ -1,20 +1,27 @@
-import decorator.beverage.Beverage;
-import decorator.beverage.Espresso;
-import decorator.beverage.HouseBlend;
-import decorator.condiment.Mocha;
-import decorator.condiment.Whip;
-import factory.factory.NYPizzaStore;
-import observer.observer.ConcurrentConditionsDisplay;
-import observer.observer.ForecastDisplay;
-import observer.observer.StatisticsDisplay;
-import observer.subject.WeatherData;
-import strategy.duck.MallardDuck;
-import strategy.duck.RedHeadDuck;
-import strategy.duck.RubberDuck;
+import command.GarageDoor;
+import command.GarageDoorCloseCommand;
+import command.GarageDoorOpenCommand;
+import command.Light;
+import command.LightOffCommand;
+import command.LightOnCommand;
+import command.RemoteControl;
 
 public class Main {
 	public static void main(String[] args) {
-		NYPizzaStore nyPizzaStore = new NYPizzaStore();
-		nyPizzaStore.orderPizza("cheese");
+		RemoteControl remoteControl = new RemoteControl();
+		Light light = new Light();
+		LightOnCommand onLightOnCommand = new LightOnCommand(light);
+		LightOffCommand offLightOnCommand = new LightOffCommand(light);
+		GarageDoor garageDoor = new GarageDoor();
+		GarageDoorOpenCommand onGarageDoor = new GarageDoorOpenCommand(garageDoor);
+		GarageDoorCloseCommand offGarageDoor = new GarageDoorCloseCommand(garageDoor);
+
+		remoteControl.setCommand(1, onLightOnCommand, offLightOnCommand);
+		remoteControl.setCommand(4, onGarageDoor, offGarageDoor);
+
+		remoteControl.onButtonWasPushed(1);
+		remoteControl.onButtonWasPushed(4);
+		remoteControl.offButtonWasPushed(1);
+		remoteControl.offButtonWasPushed(4);
 	}
 }
