@@ -20,7 +20,7 @@
 ### 구현
 
 **이전 코드**
-```java
+```python
 popper.on();
 popper.pop();
 
