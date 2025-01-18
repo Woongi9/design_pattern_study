@@ -10,20 +10,16 @@ import command.Light;
 import command.LightOffCommand;
 import command.LightOnCommand;
 import command.RemoteControl;
+import iterator.DinerMenu;
+import iterator.PancakeHouseMenu;
+import iterator.Waitress;
 
 public class Main {
 	public static void main(String[] args) {
-		Duck mallardDuck = new MallardDuck();
+		PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
+		DinerMenu dinerMenu = new DinerMenu();
 
-		Turkey turkey = new WildTurkey();
-		Duck turkeyAdapter = new TurkeyAdapter(turkey);
-
-		System.out.println("------칠면조------");
-		turkeyAdapter.quack();
-		turkeyAdapter.fly();
-		System.out.println();
-		System.out.println("------오리------");
-		mallardDuck.quack();
-		mallardDuck.fly();
+		Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu);
+		waitress.printMenu();
 	}
 }
