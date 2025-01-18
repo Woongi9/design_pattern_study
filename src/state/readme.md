@@ -223,9 +223,3 @@ public class GumballMachine {
 
 
 <br></br>
-
----
-
-### 단일 역할 원칙
-
-* 어떤 클래스가 바뀌는 이유는 하나뿐이어야한다.
